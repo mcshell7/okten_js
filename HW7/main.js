@@ -211,3 +211,30 @@ console.log(prince);
 
 // #gsKLAsNWM
 // *Через Array.prototype. створити власний foreach, filter
+
+Array.prototype.myForEach = function (callback) {
+    const arr = this;
+    for (const arrItem of arr) {
+        callback(arrItem);
+    }
+};
+
+[1,2,3].myForEach((item) => console.log(item));
+
+
+Array.prototype.myFilter = function (callback) {
+    const arr = [];
+    for (const argument of this) {
+        if (callback(argument)){
+            arr.push(argument);
+        }
+    }
+    return arr;
+}
+
+
+const myFilterRes = PopelushkaArray.myFilter((item) => item.age > 21);
+console.log(myFilterRes);
+
+
+
